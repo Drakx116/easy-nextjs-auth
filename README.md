@@ -1,2 +1,2 @@
-# Easy React Auth
-Light Express Back-End and React Front-End with JWT auth.
+# Easy NextJS Auth
+Light Express Back-End and NextJS Front-End with JWT auth.
