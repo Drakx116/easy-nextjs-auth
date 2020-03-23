@@ -4,7 +4,7 @@
   "description": "NodeJS rework of my previous ASP .NET (SupWave) music web application.",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"cd server && npm run start\""
+    "start": "concurrently \"cd server && npm run start\" \"cd app && npm run dev\""
   },
   "repository": {
     "type": "git",
