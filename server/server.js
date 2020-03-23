@@ -5,5 +5,5 @@ const app = express();
 const port = 5000;
 
 app.listen(port,
-    () => console.log(`Server is running on ${ ENV.HOST }:${ ENV.PORT }`)
+    () => console.log(`Server is running on http://${ ENV.HOST }:${ ENV.PORT }`)
 );
