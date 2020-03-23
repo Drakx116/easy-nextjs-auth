@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import {useRouter} from 'next/router';
+import { useCookies } from 'react-cookie';
 
 const Login = () => {
     const router = useRouter();
 
     const [ pseudo, setPseudo ] = useState('');
+    const [ tokenCookie, setTokenCookie ] = useCookies();
 
     const login = (e) => {
         e.preventDefault();
@@ -18,12 +20,14 @@ const Login = () => {
                 }
             })
                 .then( res => res.json() )
-                .then( data => {
-                    if(!data.error) {
+                .then( api => {
+                    if(!api.error) {
+                        setTokenCookie('token', api.data.token, { path: '/', SameSite: true, HttpOnly: true });
                         router.push('/');
                     }
-
-                    alert(data.error);
+                    else {
+                        alert(api.error);
+                    }
                 })
 
                 .catch( error => console.log(error) );
