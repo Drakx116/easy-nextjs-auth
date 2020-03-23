@@ -6,7 +6,6 @@ const handlers = require('./middlewares/handlers');
 const routes = require('./routes');
 
 const app = express();
-const port = 5000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -17,6 +16,6 @@ app.use('/', routes.alive );
 app.use(handlers.notFound);
 app.use(handlers.error);
 
-app.listen(port,
+app.listen(`${ ENV.PORT }`,
     () => console.log(`Server is running on http://${ ENV.HOST }:${ ENV.PORT }`)
 );
