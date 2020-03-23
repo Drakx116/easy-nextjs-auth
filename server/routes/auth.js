@@ -4,6 +4,6 @@ const auth = express.Router();
 const { login } = require('../controllers/auth');
 
 auth
-    .get( '/login', login );
+    .post( '/login', login );
 
 module.exports = login;
