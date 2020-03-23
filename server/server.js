@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use('/', routes.alive );
+app.use('/auth', routes.auth );
 
 app.use(handlers.notFound);
 app.use(handlers.error);
