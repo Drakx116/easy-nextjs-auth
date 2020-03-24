@@ -6,7 +6,7 @@ const Login = () => {
     const router = useRouter();
 
     const [ pseudo, setPseudo ] = useState('');
-    const [ tokenCookie, setTokenCookie ] = useCookies();
+    const [ cookie, setCookie ] = useCookies();
 
     const login = (e) => {
         e.preventDefault();
@@ -22,7 +22,7 @@ const Login = () => {
                 .then( res => res.json() )
                 .then( api => {
                     if(!api.error) {
-                        setTokenCookie('token', api.data.token, { path: '/', SameSite: true, HttpOnly: true });
+                        setCookie('token', api.data.token, { path: '/', SameSite: true, HttpOnly: true });
                         router.push('/');
                     }
                     else {
